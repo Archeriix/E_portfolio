@@ -3,103 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Archeriix | Portfolio</title>
+<title>Archeriix Portfolio</title>
 <style>
-    /* ==== COLOR PALETTE ==== */
     :root {
         --black: #000000;
         --white: #ffffff;
         --grey-light: #acb4b8;
         --grey-dark: #969491;
         --blue-light: #d0dcf3;
-        --brown: #c5a18a;
+        --beige: #c5a18a;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
     }
 
     body {
-        margin: 0;
-        font-family: 'Segoe UI', Tahoma, sans-serif;
         display: flex;
         background-color: var(--blue-light);
         color: var(--black);
-        scroll-behavior: smooth;
     }
 
-    /* ==== SIDEBAR ==== */
+    /* Sidebar */
     nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
         width: 250px;
         background-color: var(--black);
         color: var(--white);
+        position: fixed;
+        height: 100%;
+        padding: 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-top: 2rem;
-    }
-    nav h1 {
-        font-size: 1.5rem;
-        margin-bottom: 2rem;
-    }
-    nav a {
-        color: var(--white);
-        text-decoration: none;
-        margin: 0.75rem 0;
-        font-size: 1.1rem;
-        transition: color 0.3s ease;
-    }
-    nav a:hover {
-        color: var(--brown);
     }
 
-    /* ==== MAIN CONTENT ==== */
+    nav img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--beige);
+        margin-bottom: 20px;
+    }
+
+    nav h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    nav ul {
+        list-style: none;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: var(--white);
+        display: block;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+        background-color: var(--beige);
+        color: var(--black);
+    }
+
+    /* Main content */
     main {
         margin-left: 250px;
-        padding: 2rem;
-        max-width: 900px;
+        padding: 40px;
+        width: 100%;
     }
 
     section {
-        padding: 3rem 0;
-        border-bottom: 1px solid var(--grey-light);
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    section.show {
-        opacity: 1;
-        transform: translateY(0);
+        padding: 60px 0;
+        min-height: 100vh;
     }
 
     h2 {
+        margin-bottom: 20px;
+        border-bottom: 3px solid var(--black);
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    /* Skills */
+    .skill {
+        margin: 15px 0;
+    }
+
+    .skill-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .skill-bar {
+        background-color: var(--grey-light);
+        height: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .skill-fill {
+        background-color: var(--beige);
+        height: 100%;
+        width: 0;
+        transition: width 1.5s ease-out;
+    }
+
+    /* Contact */
+    form {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+    }
+
+    form input,
+    form textarea {
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+    }
+
+    form button {
+        background-color: var(--black);
+        color: var(--white);
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    form button:hover {
+        background-color: var(--beige);
         color: var(--black);
-        margin-bottom: 1rem;
     }
 
-    p {
-        line-height: 1.6;
-        color: var(--grey-dark);
-    }
-
-    img.profile {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        display: block;
-        margin-bottom: 1.5rem;
-    }
-
-    /* ==== RESPONSIVE ==== */
+    /* Responsive */
     @media (max-width: 768px) {
+        body {
+            flex-direction: column;
+        }
+
         nav {
-            position: relative;
             width: 100%;
             height: auto;
             flex-direction: row;
             justify-content: space-around;
+            position: relative;
         }
+
+        nav img {
+            width: 50px;
+            height: 50px;
+        }
+
         main {
             margin-left: 0;
         }
@@ -108,53 +178,95 @@
 </head>
 <body>
 
-<!-- ==== SIDEBAR ==== -->
 <nav>
+    <img src="images/portrait.png" alt="Profile Picture">
     <h1>Archeriix</h1>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
+    <ul>
+        <li><a href="#about" class="active">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 </nav>
 
-<!-- ==== MAIN CONTENT ==== -->
 <main>
     <section id="about">
-        <img src="images/your-profile.png" alt="Profile" class="profile">
         <h2>About Me</h2>
-        <p>Hello! I’m Archeriix, a passionate developer with a strong interest in engineering, modeling, and creative problem solving. This portfolio showcases my work, skills, and the projects I’ve been part of.</p>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Here are some of the projects I’ve worked on. Each project challenged me to learn new skills and solve complex problems creatively.</p>
+        <p>[Write a short introduction about yourself here. Mention your background, interests, and goals.]</p>
     </section>
 
     <section id="skills">
         <h2>Skills</h2>
-        <p>Core skills: MATLAB/Simulink modeling, embedded systems development, data analysis, control systems, and web development.</p>
+        <div class="skill">
+            <div class="skill-name">HTML</div>
+            <div class="skill-bar"><div class="skill-fill" data-fill="90%"></div></div>
+        </div>
+        <div class="skill">
+            <div class="skill-name">CSS</div>
+            <div class="skill-bar"><div class="skill-fill" data-fill="80%"></div></div>
+        </div>
+        <div class="skill">
+            <div class="skill-name">JavaScript</div>
+            <div class="skill-bar"><div class="skill-fill" data-fill="70%"></div></div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>[List your key projects here, with brief descriptions and links.]</p>
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
-        <p>If you’d like to connect, reach me via <a href="mailto:youremail@example.com">email</a> or on GitHub: <a href="https://github.com/Archeriix">Archeriix</a>.</p>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
     </section>
 </main>
 
 <script>
-    // Reveal animations on scroll
-    const sections = document.querySelectorAll('section');
-    const revealOnScroll = () => {
-        const triggerBottom = window.innerHeight * 0.85;
-        sections.forEach(sec => {
-            const boxTop = sec.getBoundingClientRect().top;
-            if (boxTop < triggerBottom) {
-                sec.classList.add('show');
+    // Smooth scroll
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Active link highlight
+    window.addEventListener('scroll', () => {
+        let current = '';
+        document.querySelectorAll('section').forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (scrollY >= sectionTop - 60) {
+                current = section.getAttribute('id');
             }
         });
-    };
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
+
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // Animate skill bars on scroll
+    const skills = document.querySelectorAll('.skill-fill');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.width = entry.target.dataset.fill;
+            }
+        });
+    }, { threshold: 0.5 });
+
+    skills.forEach(skill => observer.observe(skill));
 </script>
 
 </body>
