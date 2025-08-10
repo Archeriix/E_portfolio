@@ -1,0 +1,110 @@
+/* Color Palette */
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --grey-light: #acb4b8;
+    --grey-dark: #969491;
+    --blue-light: #d0dcf3;
+    --brown-light: #c5a18a;
+}
+
+/* Reset some default browser styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    background-color: var(--white);
+    color: var(--black);
+}
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100%;
+    background-color: var(--grey-light);
+    padding: 20px;
+    box-sizing: border-box;
+}
+.sidebar h2 {
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    color: var(--black);
+}
+.sidebar ul {
+    list-style: none;
+}
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+.sidebar ul li a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+}
+.sidebar ul li a:hover {
+    color: var(--blue-light);
+}
+
+/* Main content */
+.main-content {
+    margin-left: 240px;
+    padding: 20px;
+    max-width: 900px;
+}
+section {
+    margin-bottom: 50px;
+}
+h1 {
+    color: var(--brown-light);
+    margin-bottom: 15px;
+}
+h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: var(--black);
+}
+
+/* Images */
+.profile-pic {
+    max-width: 150px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+.chart {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--grey-dark);
+    padding: 5px;
+    background-color: var(--white);
+    margin-top: 10px;
+}
+
+/* Mobile view */
+@media screen and (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .sidebar ul {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+    .main-content {
+        margin-left: 0;
+    }
+}
