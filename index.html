@@ -1,273 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Archeriix Portfolio</title>
-<style>
-    :root {
-        --black: #000000;
-        --white: #ffffff;
-        --grey-light: #acb4b8;
-        --grey-dark: #969491;
-        --blue-light: #d0dcf3;
-        --beige: #c5a18a;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-    }
-
-    body {
-        display: flex;
-        background-color: var(--blue-light);
-        color: var(--black);
-    }
-
-    /* Sidebar */
-    nav {
-        width: 250px;
-        background-color: var(--black);
-        color: var(--white);
-        position: fixed;
-        height: 100%;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav img {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid var(--beige);
-        margin-bottom: 20px;
-    }
-
-    nav h1 {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-
-    nav ul {
-        list-style: none;
-        width: 100%;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    nav ul li a {
-        text-decoration: none;
-        color: var(--white);
-        display: block;
-        padding: 10px;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
-
-    nav ul li a:hover,
-    nav ul li a.active {
-        background-color: var(--beige);
-        color: var(--black);
-    }
-
-    /* Main content */
-    main {
-        margin-left: 250px;
-        padding: 40px;
-        width: 100%;
-    }
-
-    section {
-        padding: 60px 0;
-        min-height: 100vh;
-    }
-
-    h2 {
-        margin-bottom: 20px;
-        border-bottom: 3px solid var(--black);
-        display: inline-block;
-        padding-bottom: 5px;
-    }
-
-    /* Skills */
-    .skill {
-        margin: 15px 0;
-    }
-
-    .skill-name {
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
-
-    .skill-bar {
-        background-color: var(--grey-light);
-        height: 20px;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-
-    .skill-fill {
-        background-color: var(--beige);
-        height: 100%;
-        width: 0;
-        transition: width 1.5s ease-out;
-    }
-
-    /* Contact */
-    form {
-        display: flex;
-        flex-direction: column;
-        max-width: 400px;
-    }
-
-    form input,
-    form textarea {
-        padding: 10px;
-        margin: 10px 0;
-        border: none;
-        border-radius: 5px;
-    }
-
-    form button {
-        background-color: var(--black);
-        color: var(--white);
-        padding: 10px;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-
-    form button:hover {
-        background-color: var(--beige);
-        color: var(--black);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-        body {
-            flex-direction: column;
-        }
-
-        nav {
-            width: 100%;
-            height: auto;
-            flex-direction: row;
-            justify-content: space-around;
-            position: relative;
-        }
-
-        nav img {
-            width: 50px;
-            height: 50px;
-        }
-
-        main {
-            margin-left: 0;
-        }
-    }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-content">
+      <img src="images/profile.jpg" alt="Profile Picture" class="profile-img" />
+      <h1>John Doe</h1>
+      <p class="tagline">Engineer • Innovator • Problem Solver</p>
+    </div>
+  </section>
 
-<nav>
-    <img src="images/portrait.png" alt="Profile Picture">
-    <h1>Archeriix</h1>
-    <ul>
-        <li><a href="#about" class="active">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I am a passionate engineer with expertise in electrical systems, control algorithms, and energy storage solutions. With a strong focus on battery management systems, I aim to develop innovative and reliable solutions for the future of sustainable energy.
+    </p>
+    <ul class="profile-list">
+      <li><strong>Location:</strong> Kuala Lumpur, Malaysia</li>
+      <li><strong>Email:</strong> johndoe@email.com</li>
+      <li><strong>Education:</strong> MSc Electrical Engineering</li>
     </ul>
-</nav>
+  </section>
 
-<main>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>[Write a short introduction about yourself here. Mention your background, interests, and goals.]</p>
-    </section>
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <canvas id="skillsChart" width="400" height="300"></canvas>
+  </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skill">
-            <div class="skill-name">HTML</div>
-            <div class="skill-bar"><div class="skill-fill" data-fill="90%"></div></div>
+  <!-- Experience -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Battery Systems Engineer</h3>
+          <span>2022 - Present</span>
+          <p>Developed SOC estimation algorithms using UKF and AUKF in MATLAB/Simulink for real-time applications.</p>
         </div>
-        <div class="skill">
-            <div class="skill-name">CSS</div>
-            <div class="skill-bar"><div class="skill-fill" data-fill="80%"></div></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Research Assistant</h3>
+          <span>2020 - 2022</span>
+          <p>Conducted research on adaptive estimation methods for lithium-ion battery packs in electric vehicles.</p>
         </div>
-        <div class="skill">
-            <div class="skill-name">JavaScript</div>
-            <div class="skill-bar"><div class="skill-fill" data-fill="70%"></div></div>
-        </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>[List your key projects here, with brief descriptions and links.]</p>
-    </section>
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="images/project1.jpg" alt="Project 1" />
+        <h3>Adaptive UKF SOC Estimator</h3>
+        <p>Real-time battery SOC estimation model using adaptive parameters to improve accuracy.</p>
+      </div>
+      <div class="project-card">
+        <img src="images/project2.jpg" alt="Project 2" />
+        <h3>Battery Pack Model</h3>
+        <p>Scaled-up table-based battery simulation for electric bus applications.</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea rows="5" placeholder="Your Message"></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-</main>
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="social-links">
+      <a href="#">LinkedIn</a> | <a href="#">GitHub</a> | <a href="#">Email</a>
+    </div>
+  </section>
 
-<script>
-    // Smooth scroll
-    document.querySelectorAll('nav ul li a').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Active link highlight
-    window.addEventListener('scroll', () => {
-        let current = '';
-        document.querySelectorAll('section').forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (scrollY >= sectionTop - 60) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    // Animate skill bars on scroll
-    const skills = document.querySelectorAll('.skill-fill');
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.width = entry.target.dataset.fill;
-            }
-        });
-    }, { threshold: 0.5 });
-
-    skills.forEach(skill => observer.observe(skill));
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
