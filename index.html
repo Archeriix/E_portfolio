@@ -1,93 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Hover pop effect for images */
+        .hover-pop {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-pop:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Programme Outcome split layout */
+        .programme-outcome-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+        .programme-table {
+            flex: 1 1 50%;
+            overflow-x: auto;
+        }
+        .programme-table table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .programme-table th, .programme-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            vertical-align: top;
+        }
+        .programme-table th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+            text-align: left;
+        }
+        .programme-table tbody tr:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        .programme-image {
+            flex: 1 1 40%;
+            text-align: center;
+        }
+        .programme-image img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-  <!-- Hero -->
-  <section id="hero">
-    <div class="hero-content">
-      <img src="images/profile.jpg" alt="Profile Picture" class="profile-img" />
-      <h1>John Doe</h1>
-      <p class="tagline">Engineer • Innovator • Problem Solver</p>
-    </div>
-  </section>
 
-  <!-- About -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I am a passionate engineer with expertise in electrical systems, control algorithms, and energy storage solutions. With a strong focus on battery management systems, I aim to develop innovative and reliable solutions for the future of sustainable energy.
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <h2>My Portfolio</h2>
+        <ul>
+            <li><a href="#home">Home / CV</a></li>
+            <li><a href="#experience">Experience & Education</a></li>
+            <li><a href="#skills">Skills Assessment</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main content -->
+    <div class="main-content">
+
+        <!-- Home Section -->
+        <section id="home">
+            <h1 style="font-size: 2.5em; font-weight: bold; margin-bottom: 0.2em;">Elvin Sunassee</h1>
+            <p style="font-size: 1.2em; font-weight: 500; color: #555; margin-top: 0;">Aspiring Engineer | Problem Solver | Innovation Enthusiast</p>
+            <p style="margin-top: 1em;">
+                I am a passionate engineering student who is dedicated to creating innovative solutions 
+                and building the future through technology. Explore my journey and projects below.
+            </p>
+        </section>
+
+        <!-- Experience & Education -->
+        <section id="experience">
+            <h1>Experience & Education</h1>
+        
+            <h2>Experience</h2>
+            <ul>
+                <li>
+                    <strong>Intern at CLAAS</strong> – 2024  
+                    Bad Saulgau, Germany  
+                    Service Function E/E Implements
+                </li>
+            </ul>
+
+            <h2>Education</h2>
+            <ul>
+                <li>
+                    <strong>BEng (Hons) Electrical/Electronics Engineering</strong> – 2021-2025  
+                    Asia Pacific University (Malaysia) & De Montfort University (UK)  
+                    Kuala Lumpur, Malaysia  
+                    MEng, DMU
+                </li>
+                <li>
+                    <strong>Secondary Education</strong> – 2013-2020  
+                    College du St. Esprit, Quatre Bornes, Mauritius  
+                    Cambridge A-Levels
+                </li>
+            </ul>
+        </section>
+
+        <!-- Skills Assessment -->
+        <section id="skills">
+            <h1>Skills Assessment</h1>
+
+            <!-- SWOT Analysis -->
+            <h2>SWOT Analysis</h2>
+            <div style="text-align:center;">
+                <img src="images/swot.jpg" alt="SWOT Analysis" class="chart hover-pop" style="max-width:80%; border-radius:10px;">
+            </div>
+
+            <!-- Programme Outcome Evaluation -->
+            <h2>Programme Outcome Evaluation</h2>
+            <div class="programme-outcome-container">
+
+                <!-- Left: Table -->
+                <div class="programme-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>PO Code</th>
+                                <th>Program Outcome Description</th>
+                                <th>Attainment (0–1)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>PLO1</td><td>Apply mathematics, science, and engineering principles to solve complex problems</td><td>0.50</td></tr>
+                            <tr><td>PLO2</td><td>Analyze complex engineering challenges using appropriate principles</td><td>0.71</td></tr>
+                            <tr><td>PLO3</td><td>Design innovative solutions for advanced engineering problems</td><td>0.89</td></tr>
+                            <tr><td>PLO4</td><td>Investigate complex issues through research and experimentation</td><td>0.50</td></tr>
+                            <tr><td>PLO5</td><td>Use suitable tools and techniques for engineering practice</td><td>0.80</td></tr>
+                            <tr><td>PLO6</td><td>Demonstrate safety, ethics, and legal responsibility in the solution development</td><td>1.00</td></tr>
+                            <tr><td>PLO7</td><td>Apply sustainable practices and consider environmental aspects in engineering</td><td>1.00</td></tr>
+                            <tr><td>PLO8</td><td>Practice professional and ethical responsibilities in engineering</td><td>1.00</td></tr>
+                            <tr><td>PLO9</td><td>Collaborate effectively within multidisciplinary teams</td><td>0.83</td></tr>
+                            <tr><td>PLO10</td><td>Exhibit entrepreneurship, project management, and economic decision-making skills</td><td>1.00</td></tr>
+                            <tr><td>PLO11</td><td>Embrace lifelong learning for ongoing professional development</td><td>1.00</td></tr>
+                            <tr><td>PLO12</td><td>Communicate effectively with both technical and non-technical audiences through clear, concise written, oral, and visual formats</td><td>1.00</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Right: Image -->
+                <div class="programme-image">
+                    <img src="images/chart1.jpg" alt="Programme Outcome Chart" class="hover-pop">
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion" class="py-16 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-6">Conclusion</h2>
+    <p class="text-lg leading-relaxed text-gray-700 mb-8">
+      This portfolio highlights my technical capabilities, project experiences, and continuous professional development.
+      From engineering design and problem-solving to sustainable practices and innovation, I strive to combine technical
+      expertise with creativity to deliver impactful solutions. The evaluations and analysis provided reflect my
+      commitment to excellence and lifelong learning.
     </p>
-    <ul class="profile-list">
-      <li><strong>Location:</strong> Kuala Lumpur, Malaysia</li>
-      <li><strong>Email:</strong> johndoe@email.com</li>
-      <li><strong>Education:</strong> MSc Electrical Engineering</li>
-    </ul>
-  </section>
+    <p class="text-lg leading-relaxed text-gray-700">
+      I am always open to new opportunities, collaborations, and projects that challenge me to grow further as a
+      professional engineer. Let’s connect and create something extraordinary together.
+    </p>
+  </div>
+</section>
 
-  <!-- Skills -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <canvas id="skillsChart" width="400" height="300"></canvas>
-  </section>
+<section id="contact" class="py-16 bg-white">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
+    <p class="text-lg text-gray-700 mb-8">
+      Feel free to reach out to me for collaborations, project discussions, or any inquiries.
+    </p>
+    <div class="space-y-4">
+      <p class="text-lg"><strong>Email:</strong> elvin9sunassee@gmail.com</p>
+      <p class="text-lg"><strong>Phone:</strong> +60 163 584 553</p>
+         </div>
+  </div>
+</section>
 
-  <!-- Experience -->
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <h3>Battery Systems Engineer</h3>
-          <span>2022 - Present</span>
-          <p>Developed SOC estimation algorithms using UKF and AUKF in MATLAB/Simulink for real-time applications.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <h3>Research Assistant</h3>
-          <span>2020 - 2022</span>
-          <p>Conducted research on adaptive estimation methods for lithium-ion battery packs in electric vehicles.</p>
-        </div>
-      </div>
+
     </div>
-  </section>
 
-  <!-- Projects -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <img src="images/project1.jpg" alt="Project 1" />
-        <h3>Adaptive UKF SOC Estimator</h3>
-        <p>Real-time battery SOC estimation model using adaptive parameters to improve accuracy.</p>
-      </div>
-      <div class="project-card">
-        <img src="images/project2.jpg" alt="Project 2" />
-        <h3>Battery Pack Model</h3>
-        <p>Scaled-up table-based battery simulation for electric bus applications.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <div class="social-links">
-      <a href="#">LinkedIn</a> | <a href="#">GitHub</a> | <a href="#">Email</a>
-    </div>
-  </section>
-
-  <script src="script.js"></script>
 </body>
 </html>
